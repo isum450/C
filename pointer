@@ -106,3 +106,57 @@ int main(){
     return 0;
 }
 */
+
+/*
+#include<stdio.h>
+//320page 문제 14-1
+int SquareByValue(int factor)
+{
+    int temp = factor;
+    factor *= temp;
+    printf("%d\n", factor);
+    return factor;
+}
+
+int SquareByReference(int * ptr)
+{
+    int temp = *ptr;
+    *ptr *= temp;
+    return *ptr;
+}
+
+int main(){
+    
+    int num =10;
+
+    SquareByValue(num);
+    printf("num : %d\n", num);
+
+    SquareByReference(&num);
+
+    printf("num : %d\n", num);
+}
+*/
+/*
+#include<stdio.h>
+//320page 문제 14-2
+void Swap3(int *num1, int *num2, int *num3)
+{
+    int temp = *num2;
+    *num2 = *num1;
+    *num1 = *num3;
+    *num3 = temp;
+}
+int main(){
+    
+    int num1 = 1;
+    int num2 = 2;
+    int num3 = 3;
+
+    printf("num1 :%d num2 :%d num3 :%d\n", num1, num2, num3);
+    
+    Swap3(&num1, &num2, &num3);
+
+    printf("num1 :%d num2 :%d num3 :%d\n", num1, num2, num3);
+}
+*/
