@@ -109,7 +109,7 @@ int main(){
 
 /*
 #include<stdio.h>
-//320page 문제 14-1
+//320page 문제 14-1, 1번 문제
 int SquareByValue(int factor)
 {
     int temp = factor;
@@ -136,10 +136,40 @@ int main(){
 
     printf("num : %d\n", num);
 }
+------------------------------
+답지
+
+#include<stdio.h>
+//320page 문제 14-1, 1번 문제
+int SquareByValue(int factor)
+{
+    return factor*factor;
+}
+
+void SquareByReference(int * ptr)
+{
+    int temp = *ptr;
+    *ptr *= temp;
+}
+
+int main(){
+    
+    int num =10;
+
+    
+    printf("num : %d\n", SquareByValue(num););
+
+    SquareByReference(&num);
+
+    printf("num : %d\n", num);
+    
+    return 0;
+}
+
 */
 /*
 #include<stdio.h>
-//320page 문제 14-2
+//320page 문제 14-1 ,2번 문제
 void Swap3(int *num1, int *num2, int *num3)
 {
     int temp = *num2;
@@ -160,3 +190,39 @@ int main(){
     printf("num1 :%d num2 :%d num3 :%d\n", num1, num2, num3);
 }
 */
+#include<stdio.h>
+//320page 문제 14-2 문제 1
+void ShowAllDate(const int *arr, int len)
+{
+    for(int i =0; i<len; i++){
+        printf("%d", arr[i]);
+    }
+}
+위 함수의 매개변수 선언에서 매개변수 arr을 대상으로 const선언을 한 이유는 함수 내에서 *arr의 값을 출력해야 하는데,
+오타나 실수로 그 값에 변경을 줘버리게 되면, 원하는 결과값이 나오지 않기 때문에.
+
+----------------------------------------------------------------
+답 :
+문제에서 정의한 함수의 기능은 인자로 전달된 배열의 전체요소를 출력하는 것이다. 따라서 프로그래머가 실수로라도 배열요소의 값을 바꾸는 일은 없어야 한다.
+그래서 매개변수 arr에 const 선언을 추가한 것이다. 프로그래머가 실수로 배열요소의 값을 바꾸는 코드를 작성할 경우 컴파일 에러가 발생할 것이고, 자신의 실수를 인식하고 적절히 코드를 수정할 기회를 얻을 수 있게 되었다.
+/*
+#include<stdio.h>
+//320page 문제 14-2 문제 1
+void ShowDate(const int *ptr)
+{
+    int *rptr = ptr;
+    printf("%d\n", *rptr);
+    *rptr =20;
+}
+   
+int main(void)
+{
+    int num =10;
+    int *ptr =&num;
+    ShowDate(ptr);
+    return 0;
+}
+내 답 : const 선언으로 포인터 변수 ptr이 가리키는 값의 변경은 불가능한데, *rptr을 이용해서 그 값을 변경하려고 한다.
+-------------------------------------------------------
+*/
+rptr을 이용해서 ptr이 가리키는 벼수에 저장된 값을 변경해버리는 상황이 되어서 const선언을 추가한 것이 의미가 없는 상황이 되었다. 이렇게 const선언을 무의미하게 만드는 문장을 삽입하는 것은 잘못된 일이다.
