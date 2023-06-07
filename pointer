@@ -226,3 +226,227 @@ int main(void)
 -------------------------------------------------------
 */
 rptr을 이용해서 ptr이 가리키는 벼수에 저장된 값을 변경해버리는 상황이 되어서 const선언을 추가한 것이 의미가 없는 상황이 되었다. 이렇게 const선언을 무의미하게 만드는 문장을 삽입하는 것은 잘못된 일이다.
+
+
+
+
+//도전! 프로그래밍2
+//328page~ 333page
+
+/*
+#include<stdio.h>
+// 도전1
+void OddNum(int *OdArr)
+{
+    printf("홀수 : ");
+    for(int i=0; i<10; i++)
+    {
+        if(OdArr[i]%2 !=0)
+            printf("%d ", OdArr[i]);
+    }
+}
+
+void EvenNum(int *EvArr)
+{
+    printf("짝수 : ");
+    for(int i=0; i<10; i++)
+    {
+        if(EvArr[i]%2 ==0)
+            printf("%d ", EvArr[i]);
+    }
+}
+
+int main()
+{
+    int arr[10];
+
+    for(int i=0; i<10; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    for(int j=0; j<10; j++)
+        printf("%d ", arr[j]);
+    OddNum(arr);
+    EvenNum(arr);
+}
+*/
+
+/*
+#include<stdio.h>
+//도전2
+
+void transformBinary(int *ptr, int len)
+{
+    int arr[len];
+    int i =0;
+    while(*ptr/2 !=0)
+    {
+        arr[i] = *ptr%2;
+        *ptr /=2;
+        i++;
+        
+        if(*ptr ==1)
+        {
+            arr[i] = *ptr;
+            i++;
+            break;
+        }
+    }
+
+    for(int j=i-1; j>=0; j--)
+        printf("%d", arr[j]);
+    printf("\n");
+}
+
+int main()
+{
+    int inputNum=0;
+
+    printf("10진수 입력 : ");
+    scanf("%d", &inputNum);
+
+    int numString = inputNum/2;
+    transformBinary(&inputNum,numString);
+}
+*/
+/*
+#include<stdio.h>
+//도전3
+
+void EvenNum(int *Arr)
+{
+    int EvenNumGathering[10] = {0,};;
+    int *ptr = Arr;
+    int EvenCount =0;
+    for(int i=0; i<10; i++)
+    {
+        if(Arr[i]%2==0)
+        {
+            EvenNumGathering[EvenCount] = Arr[i];
+            EvenCount ++;
+        }
+        else
+            continue;
+    }
+
+    int OddNumGathering[10] = {0,};
+    int OddCount =0;
+    for(int j=0; j<10; j++)
+    {
+        if(Arr[j]%2 ==1)
+        {
+            OddNumGathering[OddCount] = Arr[j];
+            OddCount++;
+        }
+        else
+            continue;
+    }
+
+    for(int k=0; k<OddCount; k++)
+    {
+        Arr[k] = OddNumGathering[k];
+    }
+    int m =0;
+    for(int l=OddCount; l<10; l++)
+    {
+        Arr[l] = EvenNumGathering[EvenCount-m-1];
+        m++;
+    }
+}
+
+int main()
+{
+    int Arr[10] ;
+
+    for(int i =0; i<10; i++)
+    {
+        printf("입력 : ");
+        scanf("%d", &Arr[i]);
+    }
+    EvenNum(Arr);
+    for(int j =0; j<10; j++)
+    {
+        printf("Arr[%d] : %d ",j, Arr[j]);
+    }
+}
+*/
+/*
+
+#include<stdio.h>
+#include<string.h>
+//도전4
+
+void Palindrome(char str[10], int len){
+    for(int i=0; i<len; i++)
+    {
+        if(str[i] == str[len-1-i])
+        {
+            if(i+1 ==len)
+            {
+                printf("이 단어는 회문입니다.\n");
+            }
+            continue;
+        }
+        else if(str[i] != str[len-1-i])
+        {
+            printf("회문이 아닙니다.\n");
+            break;
+        }
+            
+        
+        
+    }
+}
+int main()
+{
+    char str[50];
+    printf("단어를 입력하세요 : ");
+    scanf("%s", str);
+    int len = strlen(str);
+
+    Palindrome(str , len);
+
+}
+*/
+/*
+#include<stdio.h>
+//도전5
+
+void Bubble_Sort(int Arr[4], int len)
+{
+    int num;
+
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<len; j++)
+        {
+            if(Arr[j]>Arr[j+1])
+            {
+                num=Arr[j];
+                Arr[j]= Arr[j+1];
+                Arr[j+1] =num;
+            }
+            else if(Arr[j]<Arr[j+1])
+                continue;
+        }
+        len--;
+    }
+}
+int main()
+{
+    int Arr[4] ={3,2,4,1};
+
+    for(int i =0; i<4; i++)
+    {
+        printf("%d ", Arr[i]);
+    }
+    printf("\n");
+    int len = sizeof(Arr)/sizeof(int);
+    Bubble_Sort(Arr, len);
+
+    for(int i =0; i<4; i++)
+    {
+        printf("%d ", Arr[i]);
+    }
+}
+*/
