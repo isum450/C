@@ -1,1 +1,160 @@
+/*
+#include<stdio.h>
+//348page 문제 16-1 문제 1
+int main()
+{
+    int Arr[3][9];
+    int Multiplication_Table = 2;
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<9; j++)
+        {
+            Arr[i][j] = Multiplication_Table * (j+1);
+        }
+        Multiplication_Table++;
+    }
 
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<9; j++)
+        {
+            printf("배열 Arr[%d][%d] = %d\n", i, j, Arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+*/
+/*
+#include<stdio.h>
+//348page 문제 16-1 문제 2
+
+int main()
+{
+    int A[2][4] ={
+        1,2,3,4,
+        5,6,7,8
+    };
+    int B[4][2];
+    for(int i=0; i<2; i++)
+    {
+        for(int j=0; j<4; j++)
+        {
+            B[j][i] = A[i][j];
+        }
+    }
+    printf("배열 A에 저장된 값! : \n");
+    for(int i=0; i<2; i++)
+    {
+        for(int j=0; j<4; j++)
+        {
+            printf("%d \n", A[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("배열 B에 저장된 값! : \n");
+    for(int i=0; i<4; i++)
+    {
+        for(int j=0; j<2; j++)
+        {
+            printf("%d \n", B[i][j]);
+        }
+        printf("\n");
+    }
+}
+*/
+/*
+#include<stdio.h>
+//348page 문제 16-1 문제 3
+
+void Score(int Test_Score[5][5], int i)
+{
+    int j=0;
+    int total = 0;
+    for(j=0; j<4; j++)
+    {
+        if(j==0)
+        {
+            printf("국어 점수는 : ");
+            scanf("%d", &Test_Score[i][j]);
+            total += Test_Score[i][j];
+        }
+        if(j==1)
+        {
+            printf("영어 점수는 : ");
+            scanf("%d", &Test_Score[i][j]);
+            total += Test_Score[i][j];
+        }
+        if(j==2)
+        {
+            printf("수학 점수는 : ");
+            scanf("%d", &Test_Score[i][j]);
+            total += Test_Score[i][j];
+        }
+        if(j==3)
+        {
+            printf("국사 점수는 : ");
+            scanf("%d", &Test_Score[i][j]);
+            total += Test_Score[i][j];
+        }
+    }
+    if(j==4)
+    {
+        Test_Score[i][j] = total;
+    }
+}
+
+
+int main()
+{
+    int Test_Score[5][5];
+    for(int i=0; i<4; i++)
+    {
+        if(i==0)
+        {
+            printf("철희의 \n");
+            Score(Test_Score, i);
+        }
+        if(i==1)
+        {
+            printf("철수의 \n");
+            Score(Test_Score, i);
+        }
+        if(i==2)
+        {
+            printf("영희의 \n");
+            Score(Test_Score, i);
+        }
+        if(i==3)
+        {
+            printf("영수의 \n");
+            Score(Test_Score, i);
+        }
+    }
+
+
+    for(int i =0; i<5; i++)
+    {
+        int Subject_Total =0;
+        for(int j=0; j<4; j++)
+        {
+            Subject_Total += Test_Score[j][i];//과목별 총점
+            if(j+1==4)
+            {
+                Test_Score[4][i] = Subject_Total;
+            }
+        }
+        
+    }
+
+
+    for(int i =0; i<5; i++)
+    {
+        for(int j=0; j<5; j++)
+        {
+            printf("%d ", Test_Score[i][j]);
+        }
+        printf("\n");
+    }
+}
+*/
